@@ -10,7 +10,7 @@ Inserts clean section separator comments that fill exactly to your right margin/
 
 ## Features
 
-- **AZERTY and QWERTY friendly shortcut**: `Ctrl+Shift+;` (Windows/Linux) or `Cmd+Shift+;` (macOS)
+- **AZERTY and QWERTY friendly shortcut**: `Ctrl+Shift+,` (Windows/Linux) or `Cmd+Shift+,` (macOS)
 - **Auto-detects comment style** from file extension:
   - `//` -> Java, Kotlin, JS/TS, C/C++, C#, Go, Swift
   - `#`  -> Python, Ruby, Shell, YAML
@@ -66,5 +66,5 @@ String fill = "─".repeat(fillLength);  // U+2500
 To change the default shortcut, edit `plugin.xml`:
 
 ```xml
-<keyboard-shortcut keymap="$default" first-keystroke="ctrl shift SEMICOLON"/>
+<keyboard-shortcut keymap="$default" first-keystroke="ctrl shift COMMA"/>
 ```

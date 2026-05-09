@@ -4,8 +4,8 @@
     <vendor email="julie.mongault@gmail.com" url="">Julie Mongault</vendor>
     <description><![CDATA[
         Insert a clean section separator comments with the shortcut: <br/>
-        Windows : Ctrl+Shift+; <br/>
-        MacOs : Cmd+Shift+; <br/>
+        Windows : Ctrl+Shift+, <br/>
+        MacOs : Cmd+Shift+, <br/>
         Produces a line like:<br/>
         <pre>// ─── Fields ────────────────────────────────────────────────────────────</pre>
         The line length is set to exactly match your configured right margin/hard wrap guide. <br/>
@@ -35,16 +35,16 @@
             text="Insert Section Comment"
             description="Insert a ─── Section ─── separator comment at the current line">
 
-            <!-- Default shortcut: Ctrl+Shift+; and Cmd+Shift+; for macOS) -->
+            <!-- Default shortcut: Ctrl+Shift+, and Cmd+Shift+, for macOS) -->
             <keyboard-shortcut
                 keymap="$default"
-                first-keystroke="ctrl shift SEMICOLON"/>
+                first-keystroke="ctrl shift COMMA"/>
             <keyboard-shortcut
                 keymap="Mac OS X"
-                first-keystroke="meta shift SEMICOLON"/>
+                first-keystroke="meta shift COMMA"/>
             <keyboard-shortcut
                 keymap="Mac OS X 10.5+"
-                first-keystroke="meta shift SEMICOLON"/>
+                first-keystroke="meta shift COMMA"/>
 
             <!-- Available from Code menu -->
             <add-to-group group-id="CodeMenu" anchor="last"/>
