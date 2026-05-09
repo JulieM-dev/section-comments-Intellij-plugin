@@ -1,0 +1,55 @@
+<idea-plugin>
+    <id>com.sectioncomment.plugin</id>
+    <name>Section Comment</name>
+    <vendor email="julie.mongault@gmail.com" url="">Julie Mongault</vendor>
+    <description><![CDATA[
+        Insert a clean section separator comments with the shortcut: <br/>
+        Windows : Ctrl+Shift+; <br/>
+        MacOs : Cmd+Shift+; <br/>
+        Produces a line like:<br/>
+        <pre>// ─── Fields ────────────────────────────────────────────────────────────</pre>
+        The line length is set to exactly match your configured right margin/hard wrap guide. <br/>
+        IntelliJ default is 120.<br/>
+        ! Android Studio default is 100.<br/>
+        Settings are located in : Setting -> Tools-> Section Comments
+    ]]></description>
+
+    <!-- Compatible with IntelliJ IDEA 2022.1+ and later -->
+    <idea-version since-build="221"/>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Settings page in Settings -> Tools-> Section Comments -->
+        <projectConfigurable
+            parentId="tools"
+            instance="com.sectioncomment.SectionCommentConfigurable"
+            id="com.sectioncomment.SectionCommentConfigurable"
+            displayName="Section Comments"/>
+    </extensions>
+
+    <actions>
+        <action
+            id="SectionComment.Insert"
+            class="com.sectioncomment.InsertSectionCommentAction"
+            text="Insert Section Comment"
+            description="Insert a ─── Section ─── separator comment at the current line">
+
+            <!-- Default shortcut: Ctrl+Shift+; and Cmd+Shift+; for macOS) -->
+            <keyboard-shortcut
+                keymap="$default"
+                first-keystroke="ctrl shift SEMICOLON"/>
+            <keyboard-shortcut
+                keymap="Mac OS X"
+                first-keystroke="meta shift SEMICOLON"/>
+            <keyboard-shortcut
+                keymap="Mac OS X 10.5+"
+                first-keystroke="meta shift SEMICOLON"/>
+
+            <!-- Available from Code menu -->
+            <add-to-group group-id="CodeMenu" anchor="last"/>
+            <!-- And from the right-click menu -->
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
