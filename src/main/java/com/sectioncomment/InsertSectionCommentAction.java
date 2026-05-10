@@ -45,16 +45,20 @@ public class InsertSectionCommentAction extends AnAction {
         String commentStart = commentTokens[0];
         String commentEnd = commentTokens[1];
 
-        // Build the comment
-        String comment = buildSectionComment(label.trim(), lineLength, commentStart, commentEnd);
 
-        // Insert
         Document document = editor.getDocument();
         int offset = editor.getCaretModel().getOffset();
-        int lineStart = document.getLineStartOffset(document.getLineNumber(offset));
+        int lineNumber = document.getLineNumber(offset);
+        int lineStart = document.getLineStartOffset(lineNumber);
+        String lineText = document.getText().substring(lineStart, offset);
+        String indent = lineText.replaceAll("\\S.*", "");
 
+        // Build the comment
+        String comment = buildSectionComment(label.trim(), lineLength - indent.length(), commentStart, commentEnd);
+
+        // Insert
         WriteCommandAction.runWriteCommandAction(project, () -> {
-            document.insertString(lineStart, comment + "\n");
+            document.insertString(lineStart, indent + comment + "\n");
         });
     }
 
